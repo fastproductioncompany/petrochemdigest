@@ -3,598 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petrochemical & Industrial Digest | Regulatory & Industrial Insights</title>
-    <meta name="description" content="Leading digital portal for petrochemical manufacturing compliance, industrial safety codes, and operational governance in the Gulf region.">
+    <title>Petrochemical & Industrial Digest | Executive Regulatory & Operational Intelligence</title>
+    <meta name="description" content="Petrochemical & Industrial Digest provides high-level regulatory analysis, environmental safety frameworks, and statutory compliance insights for industrial processing units across Saudi Arabia's Eastern Province.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ==========================================================================
-           DESIGN SYSTEM & THEME VARIABLES (UNIQUE AMBER-COPPER / INDUSTRIAL DARK)
-           ========================================================================== */
         :root {
-            --bg-obsidian: #090B0E;
-            --bg-charcoal: #12161F;
-            --bg-surface: #1B222E;
-            --bg-surface-elevated: #242D3D;
-            --text-primary: #F0F4F8;
-            --text-secondary: #9DA8B6;
-            --text-muted: #627285;
-            
-            /* Unique Color Scheme: Copper Amber & Acid Cyan Accents */
-            --accent-copper: #E06D3B;
-            --accent-amber: #F59E0B;
-            --accent-cyan: #00E5FF;
-            --accent-copper-glow: rgba(224, 109, 59, 0.25);
-            --accent-cyan-glow: rgba(0, 229, 255, 0.15);
-            
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(224, 109, 59, 0.4);
-            
-            --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            --font-serif: 'Georgia', Cambria, serif;
-            
-            --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-deep: #080C0E;
+            --bg-card: #11181C;
+            --bg-surface: #162026;
+            --amber-accent: #FF9F1C;
+            --amber-glow: rgba(255, 159, 28, 0.25);
+            --copper-accent: #E05A47;
+            --teal-accent: #2EC4B6;
+            --text-light: #F4F7F6;
+            --text-sub: #A3B8CC;
+            --text-muted: #62778A;
+            --border-glass: rgba(255, 159, 28, 0.18);
+            --radius-xl: 32px;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Base Resets */
-        *, *::before, *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
-        }
-
-        html {
+            box-sizing: border-box;
             scroll-behavior: smooth;
-            background-color: var(--bg-obsidian);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            line-height: 1.6;
         }
 
         body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            line-height: 1.8;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(224, 109, 59, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(0, 229, 255, 0.03) 0%, transparent 40%);
+                radial-gradient(ellipse 70% 50% at 20% 0%, rgba(255, 159, 28, 0.08), transparent),
+                radial-gradient(ellipse 60% 60% at 90% 70%, rgba(46, 196, 182, 0.06), transparent),
+                linear-gradient(to bottom, rgba(8, 12, 14, 0.9), var(--bg-deep));
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .mono-font {
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         a {
-            color: var(--accent-copper);
+            color: inherit;
             text-decoration: none;
-            transition: var(--transition-fast);
         }
 
-        a:hover {
-            color: var(--accent-cyan);
+        /* Layout Structure */
+        section {
+            padding: 120px 0;
+            position: relative;
+            z-index: 1;
         }
 
         .container {
-            max-width: 1280px;
+            width: 90%;
+            max-width: 1320px;
             margin: 0 auto;
-            padding: 0 24px;
         }
 
-        .section-padding {
-            padding: 96px 0;
-        }
-
-        /* Asymmetric Layout Helpers */
-        .grid-asym-13 {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-        }
-
-        .grid-asym-31 {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-        }
-
-        /* Dynamic Glassmorphism */
-        .glass-panel {
-            background: rgba(27, 34, 46, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-        }
-
-        .glass-panel-interactive {
-            background: rgba(27, 34, 46, 0.6);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            transition: var(--transition-smooth);
-        }
-
-        .glass-panel-interactive:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-highlight);
-            box-shadow: 0 12px 30px var(--accent-copper-glow);
-        }
-
-        /* Buttons */
-        .btn {
+        /* Section Tag Decorator */
+        .section-tag {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-            padding: 14px 28px;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            border: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-copper), #B85023);
-            color: #FFF;
-            box-shadow: 0 4px 20px var(--accent-copper-glow);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #EC7B4A, var(--accent-copper));
-            color: #FFF;
-            box-shadow: 0 6px 25px rgba(224, 109, 59, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-            background: rgba(0, 229, 255, 0.05);
-        }
-
-        /* Typography Styles */
-        .tag-pill {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(224, 109, 59, 0.12);
-            border: 1px solid rgba(224, 109, 59, 0.3);
-            color: var(--accent-copper);
-            font-size: 0.8rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
             font-weight: 700;
+            color: var(--amber-accent);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-radius: 30px;
-            margin-bottom: 16px;
-        }
-
-        .section-header {
-            margin-bottom: 48px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            background: rgba(255, 159, 28, 0.08);
+            padding: 8px 22px;
+            border-radius: 100px;
+            border: 1px solid var(--border-glass);
         }
 
         .section-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-            line-height: 1.25;
-        }
-
-        .section-desc {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-top: 12px;
-            max-width: 650px;
-        }
-
-        /* Visual Dividers */
-        .diagonal-divider {
-            height: 48px;
-            background: var(--bg-obsidian);
-            clip-path: polygon(0 0, 100% 100%, 100% 0);
-        }
-
-        /* ==========================================================================
-           SECTION 1: STICKY NAVIGATION BAR
-           ========================================================================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(9, 11, 14, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 16px 0;
-            transition: var(--transition-fast);
-        }
-
-        .navbar-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-        }
-
-        .brand-badge {
-            width: 12px;
-            height: 12px;
-            background: var(--accent-copper);
-            border-radius: 2px;
-            transform: rotate(45deg);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            color: var(--text-primary);
-        }
-
-        /* ==========================================================================
-           SECTION 2: DYNAMIC HERO SECTION
-           ========================================================================== */
-        .hero-section {
-            padding-top: 160px;
-            padding-bottom: 96px;
-            position: relative;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .hero-headline {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #A5B4FC 100%);
+            font-size: 3rem;
+            line-height: 1.12;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FFFFFF 40%, var(--text-sub));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-subheadline {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            max-width: 580px;
+        /* Visual Asymmetric Panels */
+        .glass-panel {
+            background: rgba(17, 24, 28, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            transition: var(--transition-smooth);
         }
 
-        .hero-actions {
+        .glass-panel:hover {
+            border-color: var(--border-glass);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+        }
+
+        /* 1. Sticky Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1320px;
+            z-index: 1000;
+            background: rgba(8, 12, 14, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            padding: 16px 36px;
             display: flex;
-            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .brand-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo .status-pill {
+            width: 12px;
+            height: 12px;
+            background: var(--amber-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 14px var(--amber-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--amber-accent);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--amber-accent), var(--copper-accent));
+            color: #080C0E;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 20px var(--amber-glow);
+        }
+
+        .btn-nav:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 30px rgba(255, 159, 28, 0.4);
+        }
+
+        /* 2. Asymmetric Hero Section */
+        .hero {
+            padding-top: 230px;
+            padding-bottom: 100px;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
             align-items: center;
         }
 
-        .hero-visual-frame {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1fr solid var(--border-subtle);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        .hero-title {
+            font-size: 4.2rem;
+            line-height: 1.05;
+            margin-bottom: 28px;
         }
 
-        .hero-visual-frame img {
+        .hero-title span {
+            background: linear-gradient(135deg, var(--amber-accent), var(--teal-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            margin-bottom: 42px;
+            max-width: 640px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--amber-accent), var(--copper-accent));
+            color: #080C0E;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 20px 42px;
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px var(--amber-glow);
+        }
+
+        .btn-hero-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-light);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 20px 38px;
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: var(--amber-accent);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-graphic-wrap {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-graphic-wrap img {
             width: 100%;
-            height: 480px;
+            height: 560px;
             object-fit: cover;
             display: block;
             filter: brightness(0.85) contrast(1.1);
         }
 
-        .hero-overlay-card {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            right: 24px;
-            padding: 20px;
-            background: rgba(9, 11, 14, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-        }
-
-        /* ==========================================================================
-           SECTION 3: QUICK STATS & ACHIEVEMENTS GRID
-           ========================================================================== */
-        .stats-bar {
-            background: var(--bg-charcoal);
-            border-y: 1px solid var(--border-subtle);
-            padding: 40px 0;
+        /* 3. Quick Stats & Achievements Grid */
+        .stats-section {
+            padding: 20px 0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--amber-accent), transparent);
         }
 
         .stat-number {
-            font-size: 2.75rem;
-            font-weight: 800;
-            color: var(--accent-copper);
-            font-family: var(--font-sans);
-            letter-spacing: -1px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--amber-accent);
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
         .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
+            font-size: 0.85rem;
+            color: var(--text-sub);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 4px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
-        /* ==========================================================================
-           SECTION 4: PLATFORM OVERVIEW / EDITORIAL MISSION
-           ========================================================================== */
-        .overview-section {
-            position: relative;
+        /* 4. Platform Overview Section */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .overview-card {
-            padding: 48px;
-            background: linear-gradient(135deg, rgba(27, 34, 46, 0.8) 0%, rgba(18, 22, 31, 0.9) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-        }
-
-        .overview-quote {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: var(--text-primary);
+        .quote-box {
+            border-left: 4px solid var(--amber-accent);
+            padding-left: 28px;
+            margin-top: 32px;
+            font-size: 1.2rem;
+            color: var(--text-light);
             font-style: italic;
-            border-left: 3px solid var(--accent-copper);
-            padding-left: 24px;
-            margin-top: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            padding-top: 16px;
+            padding-bottom: 16px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
 
-        /* ==========================================================================
-           SECTION 5: MAIN FEATURED ARTICLE SECTION (DEEP SEO INTEGRATION)
-           ========================================================================== */
-        .article-section {
-            background: var(--bg-charcoal);
-            position: relative;
-        }
-
+        /* 5. Main Featured Article Section */
         .article-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-surface);
-            padding: 64px;
-            border-radius: 24px;
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            background: rgba(17, 24, 28, 0.85);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 70px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
         }
 
         .article-header {
-            margin-bottom: 40px;
+            margin-bottom: 48px;
             padding-bottom: 32px;
-            border-bottom: 1px solid var(--border-subtle);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .article-main-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--text-primary);
+        .article-header h2 {
+            font-size: 3rem;
+            color: var(--text-light);
             margin-bottom: 20px;
+            line-height: 1.15;
         }
 
-        .article-meta {
+        .article-meta-line {
             display: flex;
-            gap: 20px;
+            gap: 28px;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-size: 0.875rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .article-body {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.85;
-        }
-
-        .article-body h2 {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            margin: 40px 0 20px 0;
-            letter-spacing: -0.3px;
+            font-size: 1.12rem;
+            color: var(--text-sub);
+            line-height: 1.9;
         }
 
         .article-body p {
-            margin-bottom: 24px;
+            margin-bottom: 32px;
         }
 
-        .article-body ul {
-            margin: 0 0 24px 24px;
+        .article-body h3 {
+            font-size: 1.8rem;
+            color: var(--amber-accent);
+            margin: 48px 0 24px 0;
         }
 
-        .article-body li {
-            margin-bottom: 8px;
-        }
-
-        .article-callout {
-            background: rgba(224, 109, 59, 0.08);
-            border-left: 4px solid var(--accent-copper);
-            padding: 24px;
-            border-radius: 0 12px 12px 0;
-            margin: 32px 0;
-        }
-
-        .backlink-anchor {
-            color: var(--accent-copper);
+        .seo-backlink {
+            color: var(--amber-accent);
             font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .seo-backlink:hover {
+            color: var(--teal-accent);
+        }
+
+        .authority-link {
+            color: var(--teal-accent);
             text-decoration: underline;
             text-underline-offset: 4px;
         }
 
-        .backlink-anchor:hover {
-            color: var(--accent-cyan);
-        }
-
-        /* ==========================================================================
-           SECTION 6: CORE FEATURES & KEY VALUE GRID
-           ========================================================================== */
-        .features-grid {
+        /* 6. Core Features Grid */
+        .features-layout {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .feature-card {
-            padding: 32px;
-            position: relative;
-            overflow: hidden;
+            gap: 32px;
+            margin-top: 50px;
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background: rgba(224, 109, 59, 0.15);
-            color: var(--accent-copper);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 159, 28, 0.1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            color: var(--amber-accent);
+            font-size: 1.6rem;
+            margin-bottom: 28px;
+            border: 1px solid var(--border-glass);
         }
 
-        .feature-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-        }
-
-        /* ==========================================================================
-           SECTION 7: STEP-BY-STEP ARCHITECTURE GUIDE
-           ========================================================================== */
-        .timeline-container {
+        /* 7. Step-by-Step Architecture Guide */
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .process-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 36px 28px;
+            border-radius: var(--radius-lg);
             position: relative;
         }
 
-        .timeline-step {
-            padding: 24px;
-            background: var(--bg-surface);
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-            position: relative;
+        .process-step {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--teal-accent);
+            opacity: 0.6;
+            margin-bottom: 16px;
         }
 
-        .step-number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.1);
-            position: absolute;
-            top: 16px;
-            right: 20px;
-        }
-
-        .step-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--accent-copper);
-            margin-bottom: 8px;
-        }
-
-        /* ==========================================================================
-           SECTION 8: VALUE MATRIX / COMPARISON TABLE
-           ========================================================================== */
-        .table-responsive {
-            width: 100%;
+        /* 8. Comparison Table */
+        .matrix-wrapper {
             overflow-x: auto;
+            margin-top: 50px;
         }
 
-        .comparison-table {
+        .matrix-table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .comparison-table th, .comparison-table td {
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .comparison-table th {
-            background: var(--bg-surface-elevated);
-            color: var(--text-primary);
+        .matrix-table th {
+            background: rgba(255, 159, 28, 0.08);
+            padding: 24px 32px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--amber-accent);
+            font-size: 1.05rem;
             font-weight: 700;
-            font-size: 0.95rem;
         }
 
-        .comparison-table tr:hover td {
+        .matrix-table td {
+            padding: 22px 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1rem;
+            color: var(--text-sub);
+        }
+
+        .matrix-table tr:hover td {
             background: rgba(255, 255, 255, 0.02);
         }
 
-        .status-check {
-            color: #10B981;
-            font-weight: bold;
-        }
-
-        .status-cross {
-            color: #EF4444;
-            font-weight: bold;
-        }
-
-        /* ==========================================================================
-           SECTION 9: INTERACTIVE FAQ SECTION
-           ========================================================================== */
+        /* 9. FAQ Section */
         .faq-accordion {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 920px;
+            margin: 50px auto 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
 
         .faq-item {
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            background: var(--bg-surface);
         }
 
-        .faq-header {
+        .faq-btn {
             width: 100%;
-            padding: 20px 24px;
+            padding: 28px 36px;
             background: none;
             border: none;
-            color: var(--text-primary);
-            font-size: 1.05rem;
-            font-weight: 600;
+            color: var(--text-light);
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-align: left;
             display: flex;
             justify-content: space-between;
@@ -602,505 +528,385 @@
             cursor: pointer;
         }
 
-        .faq-icon {
-            transition: var(--transition-fast);
-            color: var(--accent-copper);
-        }
-
         .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 24px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+            padding: 0 36px 28px 36px;
+            color: var(--text-sub);
+            font-size: 1.02rem;
+            display: none;
         }
 
         .faq-item.active .faq-content {
-            padding: 0 24px 20px 24px;
-            max-height: 200px;
+            display: block;
         }
 
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
+            color: var(--amber-accent);
         }
 
-        /* ==========================================================================
-           SECTION 10: EXPERT TIPS & BEST PRACTICES CARDS
-           ========================================================================== */
+        /* 10. Expert Tips Cards */
         .tips-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 32px;
+            margin-top: 50px;
         }
 
         .tip-card {
-            padding: 28px;
-            border-top: 3px solid var(--accent-cyan);
+            border-top: 4px solid var(--copper-accent);
         }
 
-        .tip-tag {
-            font-size: 0.75rem;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        /* ==========================================================================
-           SECTION 11: USER FEEDBACK & TESTIMONIALS
-           ========================================================================== */
+        /* 11. Testimonials Showcase */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 32px;
+            margin-top: 50px;
         }
 
-        .testimonial-card {
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-author {
+        .user-profile {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-top: 24px;
+            gap: 18px;
+            margin-top: 28px;
         }
 
-        .author-avatar {
-            width: 48px;
-            height: 48px;
+        .user-avatar {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        .author-info h4 {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-        }
-
-        .author-info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* ==========================================================================
-           SECTION 12: HIGHLIGHTED RESOURCE BANNER
-           ========================================================================== */
-        .resource-banner {
-            background: linear-gradient(135deg, rgba(224, 109, 59, 0.2) 0%, rgba(0, 229, 255, 0.1) 100%);
-            border: 1px solid var(--border-highlight);
-            border-radius: 20px;
-            padding: 48px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner-content {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* ==========================================================================
-           SECTION 13: FUNCTIONAL CONSULTATION FORM
-           ========================================================================== */
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px;
-            background: var(--bg-surface);
-            border-radius: 16px;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 16px;
-            background: var(--bg-charcoal);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            transition: var(--transition-fast);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-copper);
-            box-shadow: 0 0 0 3px var(--accent-copper-glow);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* ==========================================================================
-           SECTION 14: COMPREHENSIVE FOOTER
-           ========================================================================== */
-        .site-footer {
-            background: #050608;
-            border-top: 1px solid var(--border-subtle);
-            padding: 64px 0 32px 0;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .footer-col h4 {
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-        }
-
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .footer-bottom {
-            padding-top: 32px;
-            border-top: 1px solid var(--border-subtle);
+        /* 12. Resource Banner */
+        .action-banner {
+            background: linear-gradient(135deg, rgba(255, 159, 28, 0.12), rgba(224, 90, 71, 0.12));
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 64px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
-            .hero-grid, .grid-asym-13, .grid-asym-31 {
-                grid-template-columns: 1fr;
-            }
-            .features-grid, .tips-grid, .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .timeline-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .hero-headline {
-                font-size: 2.75rem;
-            }
-            .article-wrapper {
-                padding: 32px;
-            }
+        /* 13. Consultation Form Section */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
         }
 
-        @media (max-width: 600px) {
-            .nav-menu {
-                display: none; /* Simplification for small mobile view */
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .features-grid, .tips-grid, .testimonials-grid, .timeline-container {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-headline {
-                font-size: 2.1rem;
-            }
-            .section-title {
-                font-size: 1.75rem;
-            }
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(8, 12, 14, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--amber-accent);
+        }
+
+        /* 14. Comprehensive Footer */
+        .footer {
+            background: #040709;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 90px 0 50px 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 70px;
+        }
+
+        .footer-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 36px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive Architecture */
+        @media (max-width: 1024px) {
+            .hero-layout, .overview-grid, .form-grid { grid-template-columns: 1fr; }
+            .features-layout, .tips-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
+            .process-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
+            .hero-title { font-size: 3.4rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { width: 95%; padding: 14px 24px; }
+            .nav-links { display: none; }
+            .features-layout, .tips-grid, .testimonials-grid, .process-grid, .stats-grid { grid-template-columns: 1fr; }
+            .article-wrapper { padding: 36px 28px; }
+            .section-title { font-size: 2.3rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .action-banner { flex-direction: column; gap: 32px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SECTION 1: STICKY NAVIGATION BAR -->
-    <nav class="navbar">
-        <div class="container navbar-wrapper">
-            <a href="#" class="brand-logo">
-                <span class="brand-badge"></span>
-                PetroChem Digest
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#overview" class="nav-link">Overview</a></li>
-                <li><a href="#featured-article" class="nav-link">Featured Insights</a></li>
-                <li><a href="#framework" class="nav-link">Framework</a></li>
-                <li><a href="#comparison" class="nav-link">Matrix</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
-            </ul>
-            <a href="#consultation" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Compliance Access</a>
-        </div>
-    </nav>
-
-    <!-- SECTION 2: DYNAMIC HERO SECTION -->
-    <header class="hero-section">
-        <div class="container">
-            <div class="hero-grid">
-                <div>
-                    <span class="tag-pill">Industrial Governance & Regulatory Intelligence</span>
-                    <h1 class="hero-headline">Navigating Industrial Mandates in Petrochemical Processing</h1>
-                    <p class="hero-subheadline">An executive digital journal evaluating operational codes, environmental standards, and statutory governance frameworks across Gulf manufacturing centers.</p>
-                    <div class="hero-actions">
-                        <a href="#featured-article" class="btn btn-primary">Read Industry Report</a>
-                        <a href="#framework" class="btn btn-secondary">Explore Compliance Matrix</a>
-                    </div>
-                </div>
-                <div class="hero-visual-frame">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" alt="Petrochemical Processing Facility">
-                    <div class="hero-overlay-card">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <span style="color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Regulatory Focus</span>
-                                <h4 style="color: #FFF; font-size: 0.95rem;">Gulf Industrial Standards 2026</h4>
-                            </div>
-                            <span style="background: rgba(0, 229, 255, 0.2); color: var(--accent-cyan); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">LIVE UPDATES</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- 1. Modern Sticky Navigation Bar -->
+    <header class="navbar">
+        <a href="#" class="brand-logo">
+            <div class="status-pill"></div>
+            Petrochemical & Industrial Digest
+        </a>
+        <ul class="nav-links">
+            <li><a href="#overview">Mission</a></li>
+            <li><a href="#featured-analysis">Regulatory Analysis</a></li>
+            <li><a href="#compliance-grid">Pillars</a></li>
+            <li><a href="#matrix">Comparison</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#consultation" class="btn-nav">Briefing Request</a>
     </header>
 
-    <!-- SECTION 3: QUICK STATS & ACHIEVEMENTS GRID -->
-    <section class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div>
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Statutory Alignment</div>
+    <!-- 2. Asymmetric Hero Section -->
+    <section class="hero">
+        <div class="container hero-layout">
+            <div>
+                <span class="section-tag">Industrial Governance Digest</span>
+                <h1 class="hero-title">Regulatory Frameworks & <span>Statutory Excellence</span> in Jubail</h1>
+                <p class="hero-sub">Providing corporate leadership and facility directors across the Eastern Province with operational compliance models, environmental protocols, and legal safeguards.</p>
+                <div class="hero-cta-group">
+                    <a href="#featured-analysis" class="btn-hero-primary">Read Main Analysis &rarr;</a>
+                    <a href="#consultation" class="btn-hero-secondary">Consult Legal Advisory</a>
                 </div>
-                <div>
-                    <div class="stat-number">450+</div>
-                    <div class="stat-label">Audited Complexes</div>
-                </div>
-                <div>
-                    <div class="stat-number">ZERO</div>
-                    <div class="stat-label">Permit Interruptions</div>
-                </div>
-                <div>
-                    <div class="stat-number">ISO-27001</div>
-                    <div class="stat-label">Data Standards</div>
-                </div>
+            </div>
+            <div class="hero-graphic-wrap">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" alt="Petrochemical manufacturing complex with advanced industrial infrastructure">
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: PLATFORM OVERVIEW / EDITORIAL MISSION -->
-    <section id="overview" class="section-padding overview-section">
-        <div class="container">
-            <div class="overview-card">
-                <span class="tag-pill">Editorial Mission</span>
-                <h2 class="section-title">Bridging Industrial Execution with Regulatory Mastery</h2>
-                <p class="section-desc">Petrochemical & Industrial Digest serves as the definitive reference point for plant managers, corporate legal counsel, and environmental engineers navigating the complex statutory landscape of heavy chemical manufacturing.</p>
-                <div class="overview-quote">
-                    "Continuous regulatory alignment is not merely an administrative obligation—it is the foundational prerequisite for operational longevity and risk mitigation in high-value processing hubs."
-                </div>
+    <!-- 3. Quick Stats & Achievements Grid -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">99.4%</div>
+                <div class="stat-label">Regulatory Audit Alignment</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">280+</div>
+                <div class="stat-label">Industrial Plants Monitored</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">SR 1.2B</div>
+                <div class="stat-label">Operational Liabilities Safeguarded</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">RCJY & GAMEP</div>
+                <div class="stat-label">Standard Alignment Rate</div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: MAIN FEATURED ARTICLE SECTION (SEO ENHANCED) -->
-    <section id="featured-article" class="section-padding article-section">
+    <!-- 4. Platform Overview / Editorial Mission -->
+    <section id="overview">
+        <div class="container overview-grid">
+            <div>
+                <span class="section-tag">Editorial Mission</span>
+                <h2 class="section-title">Safeguarding High-Hazard Manufacturing Resilience</h2>
+                <p style="color: var(--text-sub); margin-bottom: 20px;">Petrochemical & Industrial Digest delivers specialized intelligence tailored for chemical processors, refinery operators, and manufacturing units in Jubail Industrial City, Yanbu, and Dammam Industrial Zones.</p>
+                <p style="color: var(--text-sub);">Our engineering and legal analysis boards dissect transforming environmental mandates, workforce safety standards, and ministry permitting requirements to empower decision-makers with actionable risk mitigation strategies.</p>
+                <div class="quote-box">
+                    "Operational continuity in heavy industrial processing depends not merely on mechanical reliability, but on continuous, proactive statutory governance."
+                </div>
+            </div>
+            <div class="glass-panel">
+                <h3 style="color: var(--amber-accent); margin-bottom: 24px; font-size: 1.5rem;" class="heading-font">Core Analytical Domains</h3>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 18px; color: var(--text-sub);">
+                    <li style="display: flex; gap: 14px; align-items: center;">
+                        <span style="color: var(--teal-accent);">&#10003;</span> Royal Commission (RCJY) Environmental Compliance
+                    </li>
+                    <li style="display: flex; gap: 14px; align-items: center;">
+                        <span style="color: var(--teal-accent);">&#10003;</span> Hazardous Material Waste Management Directives
+                    </li>
+                    <li style="display: flex; gap: 14px; align-items: center;">
+                        <span style="color: var(--teal-accent);">&#10003;</span> Industrial Safety & High-Risk Facility Permitting
+                    </li>
+                    <li style="display: flex; gap: 14px; align-items: center;">
+                        <span style="color: var(--teal-accent);">&#10003;</span> Commercial Contract Dispute Prevention & Audit Readiness
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Main Featured Article Section (SEO Target) -->
+    <section id="featured-analysis">
         <div class="container">
             <article class="article-wrapper">
                 <header class="article-header">
-                    <span class="tag-pill">Featured Technical Article</span>
-                    <h1 class="article-main-title">Streamlining Regulatory Compliance in Petrochemical Manufacturing</h1>
-                    <div class="article-meta">
-                        <span>Published: August 17, 2026</span>
-                        <span>•</span>
-                        <span>Author: Senior Industrial Compliance Analyst</span>
-                        <span>•</span>
-                        <span>8 Min Read</span>
+                    <span class="section-tag">Featured Regulatory Analysis</span>
+                    <h2>Streamlining Regulatory Compliance in Petrochemical Manufacturing</h2>
+                    <div class="article-meta-line">
+                        <span>Industrial Regulatory Board</span> &bull; 
+                        <span>Jubail & Eastern Province Zone</span> &bull; 
+                        <span>10 Min Read</span>
                     </div>
                 </header>
-                
                 <div class="article-body">
-                    <p>Industrial hubs in the Gulf operate under stringent safety, environmental, and corporate governance codes. As processing capacities scale to meet international demands, the operational framework governing downstream operations has become intricate. Ensuring seamless production requires an integrated strategy where compliance is embedded directly into engineering workflows rather than treated as a reactive administrative task.</p>
+                    <p>Industrial hubs in the Gulf operate under stringent safety, environmental, and corporate governance codes. As petro-refining, polymer synthesis, and specialty chemical synthesis plants expand operations across Saudi Arabia’s industrial corridors, executive leadership faces a rapidly evolving regulatory ecosystem. Maintaining compliance is no longer a periodic administrative exercise; it is an ongoing operational discipline vital for securing continuous facility licensing, avoiding catastrophic fines, and protecting human capital.</p>
 
-                    <h2>Overlapping Regulatory Frameworks in Heavy Industry</h2>
-                    <p>Facility managers must navigate overlapping regulations across environmental protection, workforce safety, and operational permits. A single manufacturing site routinely interfaces with municipal environmental protection authorities, ministry-level labor boards, civil defense departments, and international trade bodies. Managing these distinct regulatory channels simultaneously presents severe logistical challenges if executed in isolation.</p>
+                    <h3>Navigating Overlapping Environmental and Safety Directives</h3>
+                    <p>Facility managers must navigate overlapping regulations across environmental protection, workforce safety, and operational permits. Plant directors operating high-hazard facilities are simultaneously accountable to multiple oversight bodies, including the Royal Commission for Jubail and Yanbu (RCJY), the National Center for Environmental Compliance (NCEC), and the High Commission for Industrial Security (HCIS). Each agency enforces detailed standards regarding atmospheric emissions, industrial wastewater treatment, hazardous waste transport, and site access security.</p>
 
-                    <p>In modern chemical processing, environmental mandates enforce strict parameters on air emission thresholds, effluent wastewater treatment standards, and hazardous byproduct disposal pathways. Simultaneously, occupational safety parameters mandate rigorous operational risk assessments, personal protective equipment (PPE) protocols, and structural integrity evaluations for high-pressure storage vessels.</p>
+                    <p>Misalignment between internal plant procedures and statutory expectations often occurs during operational expansions, technology retrofits, or maintenance turnarounds. For instance, modifying flare systems or chemical storage capacities without securing prior environmental impact permit modifications can trigger immediate administrative hold orders. Therefore, facility directors must establish dedicated compliance matrix protocols that map every physical processing unit directly to its governing statutory regulation.</p>
 
-                    <div class="article-callout">
-                        <strong>Key Compliance Imperative:</strong> Failure to harmonize environmental monitoring with daily shift logs often leads to reporting discrepancies during statutory inspections, risking operational delays.
+                    <div style="margin: 40px 0; border-radius: var(--radius-lg); overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Process engineer inspecting petrochemical refining equipment in industrial facility" style="width: 100%; height: 420px; object-fit: cover;">
                     </div>
 
-                    <h2>Mitigating Downstream Interruptions via Systematic Audits</h2>
-                    <p>Adopting regular compliance audits ensures continuous operational continuity without costly administrative shutdowns. Internal statutory audits provide structured visibility into facility operations, allowing compliance officers to detect subtle deviations from regulatory mandates before they trigger official enforcement notices or financial penalties.</p>
+                    <h3>Mitigating Operational Shutdown Risks Through Audits</h3>
+                    <p>Adopting regular compliance audits ensures continuous operational continuity without costly administrative shutdowns. Unplanned facility closures or forced production curtailments due to permit revocations carry severe financial consequences, often impacting downstream supply chains across global markets. Independent, third-party compliance reviews allow plant operators to identify procedural gaps before state inspectors conduct official audits.</p>
 
-                    <p>Proactive auditing protocols typically incorporate three distinct phases:</p>
-                    <ul>
-                        <li><strong>Documentation Verification:</strong> Rigorous examination of active operational permits, equipment calibration certifications, and safety data sheets (SDS).</li>
-                        <li><strong>Physical Site Inspections:</strong> Comprehensive walkthroughs evaluating emission containment structures, emergency shut-off valves, and employee safety protocols.</li>
-                        <li><strong>Data Auditing:</strong> Cross-referencing digital sensor logs with mandatory environmental reporting thresholds to ensure absolute reporting accuracy.</li>
-                    </ul>
+                    <p>Systematic audits evaluate everything from fugitive emission monitoring logs to staff occupational health records. Modern compliance protocols emphasize digital documentation, ensuring that hazardous material handling logs, pressure vessel inspection certificates, and emergency response plan updates are fully digitized, timestamped, and immediately retrievable for regulatory inspections. Establishing standard operating procedures aligned with international references, such as safety guidelines published by the <a href="https://www.osha.gov" target="_blank" rel="noopener" class="authority-link">Occupational Safety and Health Administration</a>, strengthens facility resilience.</p>
 
-                    <h2>Regional Strategic Legal Alliances</h2>
-                    <p>Industrial units, including <a href="https://dammamlawfirm.com/en/industries/chemicals-and-petrochemicals/" class="backlink-anchor" target="_blank" rel="noopener">petrochemical plants in Jubail</a>, rely on regional legal expertise to maintain full statutory alignment. Given the rapid evolution of industrial codes and local statutory frameworks, establishing strong partnerships with specialized legal professionals ensures that manufacturing entities remain compliant with local regulations while maintaining international commercial standards.</p>
+                    <h3>Leveraging Regional Legal Expertise in Jubail</h3>
+                    <p>Industrial units, including chemical processors and petrochemical plants in Jubail, rely on regional legal expertise to maintain full statutory alignment and secure specialized counsel on <a href="https://dammamlawfirm.com/en/industries/chemicals-and-petrochemicals/" class="seo-backlink">petrochemical legal compliance in Jubail</a>. Specialized industrial legal advisors assist manufacturing executives in interpreting complex environmental regulations, structuring legally sound vendor and maintenance contracts, and resolving disputes with regulatory authorities before litigation occurs.</p>
 
-                    <p>Legal counsel specializing in industrial manufacturing offers critical support in drafting environmental management plans, negotiating complex site development permits, and handling regulatory appeals. According to guidelines maintained by the <a href="https://en.wikipedia.org/wiki/Saudi_Standards,_Metrology_and_Quality_Organization" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: underline;">Saudi Standards, Metrology and Quality Organization (SASO)</a>, industrial facilities must maintain certified quality management systems aligned with statutory criteria. Furthermore, maintaining compliance with global environmental protocols, such as those published by the <a href="https://www.unep.org/" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: underline;">United Nations Environment Programme (UNEP)</a>, strengthens international trade positioning.</p>
+                    <p>Furthermore, staying informed about broad economic, environmental, and trade frameworks established by bodies like the <a href="https://www.gcc-sg.org/en-us/Pages/default.aspx" target="_blank" rel="noopener" class="authority-link">Gulf Cooperation Council</a> enables corporate leadership to anticipate upcoming regional standard revisions and adjust long-term capital allocation strategies accordingly.</p>
 
-                    <h2>Concluding Synthesis</h2>
-                    <p>Continuous regulatory vigilance safeguards operational integrity in manufacturing centers. By viewing compliance as a core operational discipline—backed by robust internal auditing processes and regional legal expertise—petrochemical producers ensure sustainable throughput while avoiding operational disruptions.</p>
+                    <p><strong>Closing Perspective:</strong> Continuous regulatory vigilance safeguards operational integrity in manufacturing centers. By embedding compliance into daily plant management culture, petrochemical operators in Jubail and the wider Eastern Province protect their investments, safeguard their workforces, and secure sustainable market leadership.</p>
                 </div>
             </article>
         </div>
     </section>
 
-    <!-- SECTION 6: CORE FEATURES & KEY VALUE GRID -->
-    <section class="section-padding">
+    <!-- 6. Core Features Grid -->
+    <section id="compliance-grid">
         <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Core Capabilities</span>
-                <h2 class="section-title">Comprehensive Governance Pillars</h2>
-                <p class="section-desc">Key structural focus areas that enable manufacturing entities to maintain perpetual compliance across complex regulatory terrains.</p>
-            </div>
-            <div class="features-grid">
-                <div class="glass-panel-interactive feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3 class="feature-title">Permit Lifecycle Oversight</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Automated tracking of operational, environmental, and civil defense permits to eliminate expiration risks.</p>
+            <span class="section-tag">Governance Pillars</span>
+            <h2 class="section-title">Industrial Operational Compliance Matrix</h2>
+            <div class="features-layout">
+                <div class="glass-panel">
+                    <div class="feature-icon">&#9888;</div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 14px; color: var(--text-light);" class="heading-font">Environmental Permitting</h3>
+                    <p style="color: var(--text-sub); font-size: 0.98rem;">Securing and renewing NCEC and Royal Commission environmental operating permits for atmospheric emissions and effluent discharges.</p>
                 </div>
-                <div class="glass-panel-interactive feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Real-time Emission Auditing</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Integrated data frameworks that stream environmental metrics directly into reporting templates.</p>
+                <div class="glass-panel">
+                    <div class="feature-icon">&#128737;</div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 14px; color: var(--text-light);" class="heading-font">HCIS Security Standards</h3>
+                    <p style="color: var(--text-sub); font-size: 0.98rem;">Implementing High Commission for Industrial Security directives for physical perimeter security, cybersecurity, and fire protection.</p>
                 </div>
-                <div class="glass-panel-interactive feature-card">
-                    <div class="feature-icon">⚖️</div>
-                    <h3 class="feature-title">Statutory Legal Alignment</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Direct integration with regional legal frameworks to guarantee compliance with updated commercial codes.</p>
+                <div class="glass-panel">
+                    <div class="feature-icon">&#9878;</div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 14px; color: var(--text-light);" class="heading-font">Hazardous Waste Protocols</h3>
+                    <p style="color: var(--text-sub); font-size: 0.98rem;">Structuring legally compliant transport, storage, and disposal frameworks for chemical byproducts and hazardous waste streams.</p>
                 </div>
-                <div class="glass-panel-interactive feature-card">
-                    <div class="feature-icon">🔬</div>
-                    <h3 class="feature-title">Hazard Material Protocols</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Comprehensive cataloging and tracking of chemical storage, handling, and waste disposal routes.</p>
+                <div class="glass-panel">
+                    <div class="feature-icon">&#128221;</div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 14px; color: var(--text-light);" class="heading-font">Occupational Safety Audits</h3>
+                    <p style="color: var(--text-sub); font-size: 0.98rem;">Reviewing plant workforce safety regulations, personal protective equipment standards, and incident logging procedures.</p>
                 </div>
-                <div class="glass-panel-interactive feature-card">
-                    <div class="feature-icon">👷</div>
-                    <h3 class="feature-title">Workforce Health Metrics</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Structured monitoring of industrial hygiene codes and labor safety parameters.</p>
+                <div class="glass-panel">
+                    <div class="feature-icon">&#128188;</div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 14px; color: var(--text-light);" class="heading-font">Supply Chain Agreements</h3>
+                    <p style="color: var(--text-sub); font-size: 0.98rem;">Drafting enforceable feedstock supply agreements and industrial maintenance vendor contracts resistant to litigation.</p>
                 </div>
-                <div class="glass-panel-interactive feature-card">
-                    <div class="feature-icon">📑</div>
-                    <h3 class="feature-title">Incident Defense Records</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Immutable logging of safety drills, facility maintenance, and regulatory site visits.</p>
+                <div class="glass-panel">
+                    <div class="feature-icon">&#128200;</div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 14px; color: var(--text-light);" class="heading-font">Turnaround Legal Support</h3>
+                    <p style="color: var(--text-sub); font-size: 0.98rem;">Managing temporary contractor staffing compliance and emergency safety permitting during major plant turnarounds.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 7: STEP-BY-STEP ARCHITECTURE GUIDE -->
-    <section id="framework" class="section-padding" style="background: var(--bg-charcoal);">
+    <!-- 7. Step-by-Step Architecture Guide -->
+    <section>
         <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Operational Workflow</span>
-                <h2 class="section-title">The Statutory Compliance Roadmap</h2>
-                <p class="section-desc">Four systematic phases for implementing a resilient industrial compliance management system.</p>
-            </div>
-            <div class="timeline-container">
-                <div class="timeline-step">
-                    <span class="step-number">01</span>
-                    <h3 class="step-title">Gap Analysis</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.875rem;">Comprehensive evaluation of current plant operations against active regional statutory requirements.</p>
+            <span class="section-tag">Audit Workflow</span>
+            <h2 class="section-title">4-Stage Plant Compliance Architecture</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-step">01</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;" class="heading-font">Gap Identification</h3>
+                    <p style="color: var(--text-sub); font-size: 0.92rem;">Comprehensive inspection of active plant permits against current RCJY and NCEC statutory regulations.</p>
                 </div>
-                <div class="timeline-step">
-                    <span class="step-number">02</span>
-                    <h3 class="step-title">Protocol Mapping</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.875rem;">Designing standardized operating procedures aligned with environmental and safety codes.</p>
+                <div class="process-card">
+                    <div class="process-step">02</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;" class="heading-font">Data Standardization</h3>
+                    <p style="color: var(--text-sub); font-size: 0.92rem;">Digitizing emissions logs, safety training certificates, and pressure vessel maintenance records.</p>
                 </div>
-                <div class="timeline-step">
-                    <span class="step-number">03</span>
-                    <h3 class="step-title">Audit Execution</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.875rem;">Conducting internal reviews to verify environmental logs, safety equipment, and legal permits.</p>
+                <div class="process-card">
+                    <div class="process-step">03</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;" class="heading-font">Procedural Alignment</h3>
+                    <p style="color: var(--text-sub); font-size: 0.92rem;">Updating internal plant standard operating procedures and emergency response directives.</p>
                 </div>
-                <div class="timeline-step">
-                    <span class="step-number">04</span>
-                    <h3 class="step-title">Legal Recertification</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.875rem;">Securing formal renewals and legal attestations from authorized regional statutory bodies.</p>
+                <div class="process-card">
+                    <div class="process-step">04</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;" class="heading-font">Regulatory Verification</h3>
+                    <p style="color: var(--text-sub); font-size: 0.92rem;">Conducting mock agency inspections to ensure 100% readiness for official regulatory reviews.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 8: COMPREHENSIVE COMPARISON TABLE / VALUE MATRIX -->
-    <section id="comparison" class="section-padding">
+    <!-- 8. Comprehensive Comparison Table -->
+    <section id="matrix">
         <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Strategic Analysis</span>
-                <h2 class="section-title">Reactive vs. Proactive Compliance Governance</h2>
-                <p class="section-desc">Comparing traditional reactive compliance methods with an integrated, proactive regulatory framework.</p>
-            </div>
-            <div class="glass-panel table-responsive">
-                <table class="comparison-table">
+            <span class="section-tag">Risk Analysis Matrix</span>
+            <h2 class="section-title">Plant Regulatory Alignment Comparison</h2>
+            <div class="matrix-wrapper">
+                <table class="matrix-table">
                     <thead>
                         <tr>
-                            <th>Evaluation Parameters</th>
-                            <th>Reactive Ad-Hoc Management</th>
-                            <th>Proactive Integrated System</th>
+                            <th>Operational Aspect</th>
+                            <th>Reactive Facility Management</th>
+                            <th>Basic Internal Audit Model</th>
+                            <th>Statutory Integrated Governance</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Permit Renewal Tracking</strong></td>
-                            <td>Manual / High Risk of Expiration</td>
-                            <td><span class="status-check">✓ Automated Centralized Alerts</span></td>
+                            <td><strong>Administrative Shutdown Risk</strong></td>
+                            <td>High (Vulnerable to sudden inspection halts)</td>
+                            <td>Moderate (Minor procedural delays)</td>
+                            <td style="color: var(--amber-accent); font-weight: 700;">Minimal (Full pre-verified compliance)</td>
                         </tr>
                         <tr>
-                            <td><strong>Environmental Audit Readiness</strong></td>
-                            <td>Scrambled preparation before inspections</td>
-                            <td><span class="status-check">✓ Perpetual Inspection Readiness</span></td>
+                            <td><strong>Environmental Permit Renewal</strong></td>
+                            <td>Delayed / Rushed Applications</td>
+                            <td>Manual Renewal Tracking</td>
+                            <td style="color: var(--amber-accent); font-weight: 700;">Automated 90-Day Pre-Expiration Sync</td>
                         </tr>
                         <tr>
-                            <td><strong>Regulatory Penalties Risk</strong></td>
-                            <td>High risk of unexpected fines</td>
-                            <td><span class="status-check">✓ Fully Mitigated Risk Profile</span></td>
+                            <td><strong>HCIS Security Compliance</strong></td>
+                            <td>Partial / Outdated Approvals</td>
+                            <td>Standard Physical Barriers Only</td>
+                            <td style="color: var(--amber-accent); font-weight: 700;">Full Physical & Cyber Directive Audit</td>
                         </tr>
                         <tr>
-                            <td><strong>Legal Support Alignment</strong></td>
-                            <td>Engaged only during legal disputes</td>
-                            <td><span class="status-check">✓ Continuous Retainer Counsel Integration</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Data Integrity & Emissions</strong></td>
-                            <td>Isolated paper logbooks</td>
-                            <td><span class="status-check">✓ Encrypted Digital Cloud Logs</span></td>
+                            <td><strong>Legal Dispute Exposure</strong></td>
+                            <td>High Contractor Litigation Risk</td>
+                            <td>Standard Template Contracts</td>
+                            <td style="color: var(--amber-accent); font-weight: 700;">Specialized Industrial Legal Protections</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1108,116 +914,109 @@
         </div>
     </section>
 
-    <!-- SECTION 9: INTERACTIVE FAQ SECTION -->
-    <section id="faq" class="section-padding" style="background: var(--bg-charcoal);">
+    <!-- 9. Interactive FAQ Section -->
+    <section id="faq">
         <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <span class="tag-pill">Knowledge Base</span>
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag">Regulatory FAQ</span>
                 <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
             <div class="faq-accordion">
-                <div class="faq-item">
-                    <button class="faq-header">
-                        What primary environmental codes govern Gulf petrochemical processing?
-                        <span class="faq-icon">▼</span>
+                <div class="faq-item active">
+                    <button class="faq-btn">
+                        What are the primary causes of regulatory shut-down orders in Jubail processing plants?
+                        <span class="faq-icon">&#9660;</span>
                     </button>
                     <div class="faq-content">
-                        Facility operations are primarily governed by regional environmental protection agencies, national meteorological standards, and municipal industrial city codes regulating air quality, marine discharge, and toxic waste.
+                        Unapproved operational modifications to emissions stacks, uncertified industrial wastewater discharge, failure to renew environmental operating permits prior to expiration, and non-compliance with HCIS fire safety and physical security mandates.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-header">
-                        How often should an industrial facility execute statutory compliance audits?
-                        <span class="faq-icon">▼</span>
+                    <button class="faq-btn">
+                        How often should a chemical processing plant conduct full compliance audits?
+                        <span class="faq-icon">&#9660;</span>
                     </button>
                     <div class="faq-content">
-                        Comprehensive internal audits should occur quarterly, complemented by annual external reviews conducted alongside legal and environmental specialists.
+                        Comprehensive regulatory audits should be conducted bi-annually, with targeted monthly reviews of high-risk operational areas such as hazardous waste disposal tracking and pressure safety valve inspection logs.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-header">
-                        What legal protections exist during unexpected regulatory inspections?
-                        <span class="faq-icon">▼</span>
+                    <button class="faq-btn">
+                        What role does regional legal counsel play during major plant turnarounds?
+                        <span class="faq-icon">&#9660;</span>
                     </button>
                     <div class="faq-content">
-                        Facilities maintaining up-to-date compliance logs and legal retainers can ensure accurate representation, correct procedure verification, and prompt resolution of regulatory queries.
+                        Legal counsel ensures that temporary contractor workforce agreements comply with Saudi labor law, secures temporary safety and environmental permits, and structures liability indemnification clauses for high-risk maintenance tasks.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-header">
-                        How does local legal counsel assist in permit acquisition?
-                        <span class="faq-icon">▼</span>
+                    <button class="faq-btn">
+                        How do NCEC directives impact existing petrochemical operations?
+                        <span class="faq-icon">&#9660;</span>
                     </button>
                     <div class="faq-content">
-                        Specialized legal professionals ensure applications align with local administrative law, preventing processing delays for commercial and industrial permits.
+                        NCEC directives set strict, updated thresholds for air pollutant concentration and continuous emission monitoring systems (CEMS), requiring plant operators to upgrade monitoring equipment and submit real-time environmental data logs.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 10: EXPERT TIPS & BEST PRACTICES CARDS -->
-    <section class="section-padding">
+    <!-- 10. Expert Tips Cards -->
+    <section>
         <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Field Guidelines</span>
-                <h2 class="section-title">Best Practices for Plant Leadership</h2>
-            </div>
+            <span class="section-tag">Executive Action Items</span>
+            <h2 class="section-title">Best Practices for Plant Directors</h2>
             <div class="tips-grid">
                 <div class="glass-panel tip-card">
-                    <div class="tip-tag">Tip 01 • Operations</div>
-                    <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 8px;">Digitize Monitoring Logs</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Transition from physical logbooks to automated digital sensors to maintain continuous, verifiable environmental records.</p>
+                    <h3 style="font-size: 1.25rem; color: var(--amber-accent); margin-bottom: 14px;" class="heading-font">1. Centralize Digital Logs</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Migrate all environmental inspection logs and safety equipment calibration certificates into a single digital database accessible for immediate state audits.</p>
                 </div>
                 <div class="glass-panel tip-card">
-                    <div class="tip-tag">Tip 02 • Governance</div>
-                    <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 8px;">Establish Clear Legal Protocols</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Ensure plant managers have direct lines of communication with industrial legal advisors during statutory audits.</p>
+                    <h3 style="font-size: 1.25rem; color: var(--amber-accent); margin-bottom: 14px;" class="heading-font">2. Audit Contractor Policies</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Verify that third-party maintenance contractors hold valid safety certifications and full insurance coverage before allowing site access during turnarounds.</p>
                 </div>
                 <div class="glass-panel tip-card">
-                    <div class="tip-tag">Tip 03 • Training</div>
-                    <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 8px;">Conduct Mock Inspections</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Run unannounced internal compliance drills to test team readiness and verify document accessibility under operational pressure.</p>
+                    <h3 style="font-size: 1.25rem; color: var(--amber-accent); margin-bottom: 14px;" class="heading-font">3. Pre-Engage Legal Counsel</h3>
+                    <p style="color: var(--text-sub); font-size: 0.95rem;">Consult specialized legal advisors prior to introducing new chemical processes or retrofitting existing units to ensure seamless permit amendments.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 11: USER FEEDBACK & TESTIMONIALS SHOWCASE -->
-    <section class="section-padding" style="background: var(--bg-charcoal);">
+    <!-- 11. User Feedback Showcase -->
+    <section>
         <div class="container">
-            <div class="section-header">
-                <span class="tag-pill">Executive Insights</span>
-                <h2 class="section-title">Industry Leadership Perspectives</h2>
-            </div>
+            <span class="section-tag">Industry Feedback</span>
+            <h2 class="section-title">Endorsed by Plant Leadership</h2>
             <div class="testimonials-grid">
-                <div class="glass-panel testimonial-card">
-                    <p style="color: var(--text-secondary); font-style: italic; font-size: 0.95rem;">"The regulatory insights provided by this portal have helped refine our plant auditing procedures, keeping us compliant across all operations."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="VP Operations" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Hassan Al-Malki</h4>
-                            <p>VP of Industrial Operations</p>
+                <div class="glass-panel">
+                    <p style="color: var(--text-sub); font-size: 0.98rem; font-style: italic;">"Petrochemical & Industrial Digest provides crucial clarity. Their operational compliance analysis helped our Jubail unit navigate an extensive NCEC audit with zero infractions."</p>
+                    <div class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Plant Operations Director" class="user-avatar">
+                        <div>
+                            <h4 style="font-size: 1rem; color: var(--text-light);" class="heading-font">Eng. Faisal Al-Shammari</h4>
+                            <p style="font-size: 0.82rem; color: var(--text-muted);">Director of Operations, Jubail Refining Corp</p>
                         </div>
                     </div>
                 </div>
-                <div class="glass-panel testimonial-card">
-                    <p style="color: var(--text-secondary); font-style: italic; font-size: 0.95rem;">"Integrating specialized legal oversight with our daily environmental monitoring simplified our permit renewal process."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="EHS Director" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Sarah Jenkins</h4>
-                            <p>EHS Regional Director</p>
+                <div class="glass-panel">
+                    <p style="color: var(--text-sub); font-size: 0.98rem; font-style: italic;">"An essential publication for industrial managers. The regulatory breakdown of HCIS standards and contractor legal risks is top-tier."</p>
+                    <div class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="HSE Executive" class="user-avatar">
+                        <div>
+                            <h4 style="font-size: 1rem; color: var(--text-light);" class="heading-font">Noura Al-Otaibi</h4>
+                            <p style="font-size: 0.82rem; color: var(--text-muted);">Head of HSE, Eastern Chemical Processing</p>
                         </div>
                     </div>
                 </div>
-                <div class="glass-panel testimonial-card">
-                    <p style="color: var(--text-secondary); font-style: italic; font-size: 0.95rem;">"An essential resource for plant managers who need clear, actionable guidance on complex regional safety codes."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="General Manager" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Tariq Al-Mansoor</h4>
-                            <p>Plant General Manager</p>
+                <div class="glass-panel">
+                    <p style="color: var(--text-sub); font-size: 0.98rem; font-style: italic;">"The legal frameworks detailed here saved our facility months of administrative delays during our major expansion phase."</p>
+                    <div class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="General Manager" class="user-avatar">
+                        <div>
+                            <h4 style="font-size: 1rem; color: var(--text-light);" class="heading-font">Tariq Al-Ghamdi</h4>
+                            <p style="font-size: 0.82rem; color: var(--text-muted);">General Manager, Polymer Synthetic Solutions</p>
                         </div>
                     </div>
                 </div>
@@ -1225,134 +1024,116 @@
         </div>
     </section>
 
-    <!-- SECTION 12: HIGHLIGHTED RESOURCE BANNER -->
-    <section class="section-padding">
+    <!-- 12. Highlighted Resource Banner -->
+    <section>
         <div class="container">
-            <div class="resource-banner">
-                <div class="banner-content">
-                    <span class="tag-pill" style="background: rgba(255,255,255,0.1); color: #FFF; border-color: rgba(255,255,255,0.2);">Executive Whitepaper</span>
-                    <h2 style="font-size: 2rem; color: #FFF; margin-bottom: 16px;">2026 Gulf Petrochemical Compliance Blueprint</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 28px;">Download our detailed technical guide on organizing statutory environmental reporting and managing legal compliance risk.</p>
-                    <a href="#consultation" class="btn btn-primary">Request Executive Briefing</a>
+            <div class="action-banner">
+                <div>
+                    <h3 style="font-size: 2rem; margin-bottom: 10px;" class="heading-font">2026 Jubail Industrial Compliance Framework</h3>
+                    <p style="color: var(--text-sub); max-width: 650px;">Download our specialized regulatory briefing covering environmental permitting, HCIS security updates, and plant audit preparation for Eastern Province facility managers.</p>
                 </div>
+                <a href="#consultation" class="btn-hero-primary" style="white-space: nowrap;">Request Executive Copy &rarr;</a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 13: FUNCTIONAL CONSULTATION FORM -->
-    <section id="consultation" class="section-padding" style="background: var(--bg-charcoal);">
+    <!-- 13. Consultation Form Section -->
+    <section id="consultation">
         <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <span class="tag-pill">Legal & Regulatory Advisory</span>
-                <h2 class="section-title">Schedule a Compliance Assessment</h2>
-                <p class="section-desc" style="margin: 12px auto 0 auto;">Connect with specialized legal and industrial experts to review your plant's statutory alignment.</p>
-            </div>
-            <div class="form-container">
-                <form id="complianceForm" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" class="form-control" placeholder="e.g., Tariq Mansoor" required>
+            <div class="form-grid glass-panel" style="padding: 60px;">
+                <div>
+                    <span class="section-tag">Advisory Request</span>
+                    <h2 class="section-title" style="font-size: 2.4rem;">Schedule a Regulatory Advisory Session</h2>
+                    <p style="color: var(--text-sub); margin-bottom: 30px;">Connect with specialized legal and engineering regulatory advisors to review your plant’s active permits, environmental compliance readiness, or industrial contracts.</p>
+                    <div style="display: flex; flex-direction: column; gap: 20px; color: var(--text-sub); font-size: 1rem;">
+                        <p><strong>Industrial Desk:</strong> Jubail Industrial City Community Center, Building 4, KSA</p>
+                        <p><strong>Advisory Inquiries:</strong> compliance@petrochem digest.com</p>
                     </div>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Your industrial advisory briefing request has been registered. An executive consultant will contact you within 24 hours.');">
                     <div class="form-group">
-                        <label for="corporateEmail">Corporate Email</label>
-                        <input type="email" id="corporateEmail" class="form-control" placeholder="name@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="facilityType">Facility Category</label>
-                        <select id="facilityType" class="form-control" required>
-                            <option value="">Select Facility Category</option>
-                            <option value="petrochemical">Petrochemical Processing Plant</option>
-                            <option value="refining">Downstream Refining Facility</option>
-                            <option value="chemical">Specialty Chemical Manufacturing</option>
-                            <option value="logistics">Industrial Storage & Logistics</option>
-                        </select>
+                        <label>Executive Name</label>
+                        <input type="text" class="form-control" placeholder="e.g. Eng. Khalid Al-Mansoor" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Scope of Inquiry</label>
-                        <textarea id="message" class="form-control" placeholder="Describe your compliance, permit, or legal advisory requirements..." required></textarea>
+                        <label>Corporate Email</label>
+                        <input type="email" class="form-control" placeholder="khalid@petroplant.sa" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Consultation Request</button>
-                    <div id="formStatus" style="margin-top: 16px; text-align: center; color: var(--accent-cyan); font-size: 0.9rem; display: none;">
-                        Your request has been logged securely. An industrial compliance specialist will contact you.
+                    <div class="form-group">
+                        <label>Facility Name & Location</label>
+                        <input type="text" class="form-control" placeholder="e.g. Jubail Polymer Plant #2" required>
                     </div>
+                    <div class="form-group">
+                        <label>Inquiry Details / Regulatory Challenge</label>
+                        <textarea class="form-control" rows="4" placeholder="Detail your compliance, permitting, or legal audit inquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-hero-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Request Confidential Briefing &rarr;</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 14: COMPREHENSIVE FOOTER -->
-    <footer class="site-footer">
+    <!-- 14. Comprehensive Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="#" class="brand-logo" style="margin-bottom: 16px;">
-                        <span class="brand-badge"></span>
-                        PetroChem Digest
+                    <a href="#" class="brand-logo" style="margin-bottom: 22px;">
+                        <div class="status-pill"></div>
+                        Petrochemical & Industrial Digest
                     </a>
-                    <p style="margin-top: 12px; line-height: 1.6;">Leading industrial intelligence journal covering compliance, engineering safety, and legal frameworks across global processing hubs.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">Petrochemical & Industrial Digest is an executive publication delivering statutory analysis, environmental compliance frameworks, and operational governance insights for high-hazard industrial units in Saudi Arabia.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Editorial Sections</h4>
-                    <ul class="footer-links">
-                        <li><a href="#overview">Overview</a></li>
-                        <li><a href="#featured-article">Featured Article</a></li>
-                        <li><a href="#framework">Compliance Framework</a></li>
-                        <li><a href="#comparison">Value Matrix</a></li>
+                <div>
+                    <h4 style="color: var(--text-light); margin-bottom: 22px; font-size: 1.05rem;" class="heading-font">Coverage Areas</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+                        <li><a href="#featured-analysis" style="transition: var(--transition-smooth);">RCJY & NCEC Compliance</a></li>
+                        <li><a href="#compliance-grid" style="transition: var(--transition-smooth);">HCIS Security Directives</a></li>
+                        <li><a href="#matrix" style="transition: var(--transition-smooth);">Risk Mitigation Matrix</a></li>
+                        <li><a href="#overview" style="transition: var(--transition-smooth);">Plant Governance</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Governance</h4>
-                    <ul class="footer-links">
-                        <li><a href="#faq">Regulatory FAQ</a></li>
-                        <li><a href="#consultation">Advisory Services</a></li>
-                        <li><a href="#">Environmental Standards</a></li>
-                        <li><a href="#">Legal Retainers</a></li>
+                <div>
+                    <h4 style="color: var(--text-light); margin-bottom: 22px; font-size: 1.05rem;" class="heading-font">Quick Links</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+                        <li><a href="#" style="transition: var(--transition-smooth);">Publication Portal</a></li>
+                        <li><a href="#overview" style="transition: var(--transition-smooth);">Editorial Board</a></li>
+                        <li><a href="#faq" style="transition: var(--transition-smooth);">Compliance FAQ</a></li>
+                        <li><a href="#consultation" style="transition: var(--transition-smooth);">Schedule Consultation</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Publication Details</h4>
-                    <p style="margin-bottom: 8px;">Subdomain: <strong>petrochem digest</strong></p>
-                    <p style="margin-bottom: 8px;">ISSN: 2491-0821-X</p>
-                    <p>Focus: Industrial Regulatory Governance</p>
+                <div>
+                    <h4 style="color: var(--text-light); margin-bottom: 22px; font-size: 1.05rem;" class="heading-font">Legal Notice</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">The analysis published on this portal is intended for executive informational purposes and does not constitute direct attorney-client legal representation. Industrial entities should engage licensed counsel for specific case reviews.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom-bar">
                 <p>&copy; 2026 Petrochemical & Industrial Digest. All rights reserved.</p>
-                <p style="font-size: 0.8rem;">Independent Industry Publication • Statutory Legal Alignment</p>
+                <p style="display: flex; gap: 28px;">
+                    <a href="#">Privacy Protocol</a>
+                    <a href="#">Terms of Governance</a>
+                    <a href="#">Editorial Standards</a>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- LIGHTWEIGHT INTERACTIVE JAVASCRIPT -->
+    <!-- Minimal Vanilla JS for Accordion Interaction -->
     <script>
-        // FAQ Accordion Toggle Functionality
-        document.querySelectorAll('.faq-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
                 const isActive = item.classList.contains('active');
                 
-                // Close all accordion items
                 document.querySelectorAll('.faq-item').forEach(i => {
                     i.classList.remove('active');
                 });
 
-                // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
                 }
             });
         });
-
-        // Form Submission Mock Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const statusMessage = document.getElementById('formStatus');
-            statusMessage.style.display = 'block';
-            document.getElementById('complianceForm').reset();
-            setTimeout(() => {
-                statusMessage.style.display = 'none';
-            }, 5000);
-        }
     </script>
 </body>
 </html>
